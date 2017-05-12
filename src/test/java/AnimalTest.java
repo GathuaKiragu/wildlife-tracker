@@ -4,6 +4,10 @@ import org.sql2o.*;
 
 public class AnimalTest {
 //test to check if animal instantiates correctly
+
+@Rule
+  public DatabaseRule database = new DatabaseRule();
+  
   @Test
   public void animal_instantiatesCorrectly_true() {
     Animal testAnimal = new Animal("leopard");
@@ -23,7 +27,7 @@ public class AnimalTest {
     Animal anotherAnimal = new Animal("leopard");
     assertTrue(firstAnimal.equals(anotherAnimal));
   }
-  
+
 //Saving Animals
   @Test
  public void save_returnsTrueIfDescriptionsAretheSame() {
