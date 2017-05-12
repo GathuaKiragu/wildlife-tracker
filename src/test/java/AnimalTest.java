@@ -8,4 +8,10 @@ public class AnimalTest {
     Animal testAnimal = new Animal("leopard");
     assertEquals(true, testAnimal instanceof Animal);
   }
+
+  @Test
+  public void Animal_instantiatesWithName_String() {
+    Animal testAnimal = new Animal("leopard");
+    assertEquals("leopard", testAnimal.getName());
+  }
 }
