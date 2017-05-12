@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
+import org.sql2o.*;
+
 public class Animal {
   private String name;
   private int id;
@@ -35,4 +39,10 @@ public void save() {
       .getKey();
       }
     }
-  }
+public static List<Animal> all() {
+   String sql = "SELECT * FROM Animals";
+   try(Connection con = DB.sql2o.open()) {
+     return con.createQuery(sql).executeAndFetch(Animal.class);
+   }
+ }
+}
