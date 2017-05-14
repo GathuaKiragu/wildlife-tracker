@@ -2,14 +2,15 @@ import java.util.ArrayList;
 import java.util.List;
 import org.sql2o.*;
 
-public class Animal {
+public abstract class Animal {
   private String name;
   private int id;
+  public String endangered;
 
 // Constructor
-  public Animal(String name) {
-    this.name = name;
-  }
+  // public Animal(String name) {
+  //   this.name = name;
+  // }
 // method to get name
   public String getName(){
     return name;
@@ -64,5 +65,23 @@ public void save() {
          .addParameter("id", id)
          .executeUpdate();
        }
+   }
+
+   public List<Sighting> getSightings() {
+     try(Connection con = DB.sql2o.open()) {
+       String sql = "SELECT * FROM sightings where animal_id=:id";
+       return con.createQuery(sql)
+         .addParameter("id", this.id)
+         .executeAndFetch(Sighting.class);
+     }
+   }
+ // Delete sightings
+   public void deleteSightings() {
+     try(Connection con = DB.sql2o.open()) {
+       String sql = "DELETE FROM sightings where animal_id=:id";
+       con.createQuery(sql)
+         .addParameter("id", this.id)
+         .executeUpdate();
+     }
    }
 }
