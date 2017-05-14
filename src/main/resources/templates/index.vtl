@@ -39,8 +39,6 @@
   <h3><a href="/animal/$animal.getId()">$animal.getName()</a><h3>
 #end
 
-
-
 <h3>All Endangered Animals:</h3>
 #foreach ($animal in $endangeredAnimals)
   <h3><a href="/endangeredanimal/$animal.getId()">$animal.getName()</a> Health: $animal.getHealth() Age: $animal.getAge()<h3>
