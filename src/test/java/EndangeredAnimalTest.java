@@ -1,6 +1,9 @@
 import org.junit.*;
 import static org.junit.Assert.*;
 import org.sql2o.*;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EndangeredAnimalTest {
 //test to check if animal instantiates correctly
@@ -31,4 +34,11 @@ public class EndangeredAnimalTest {
      EndangeredAnimal newEndangeredAnimal = new EndangeredAnimal("Tiger", "okay", 3);
      assertEquals(3, newEndangeredAnimal.getAge());
    }
+  //Save endangered animal to Database
+  // @Test
+  // public void save_savesEndangeredAnimalIntoDatabase_true() {
+  //   EndangeredAnimal newEndangeredAnimal = new EndangeredAnimal("Tiger", "okay", 3);
+  //   newEndangeredAnimal.save();
+  //   assertTrue(EndangeredAnimal.all().get(0).equals(newEndangeredAnimal));
+  // }
 }

@@ -40,22 +40,22 @@ public void save() {
       }
     }
 // Assign id to animal
-public static List<Animal> all() {
-   String sql = "SELECT * FROM Animals";
-   try(Connection con = DB.sql2o.open()) {
-     return con.createQuery(sql).executeAndFetch(Animal.class);
-   }
- }
+// public static List<Animal> all() {
+//    String sql = "SELECT * FROM animals";
+//    try(Connection con = DB.sql2o.open()) {
+//      return con.createQuery(sql).executeAndFetch(Animal.class);
+//    }
+//  }
  // find animal from the database
- public static Animal find(int id) {
-     try(Connection con = DB.sql2o.open()) {
-       String sql = "SELECT * FROM Animals where id=:id";
-       Animal Animal = con.createQuery(sql)
-         .addParameter("id", id)
-         .executeAndFetchFirst(Animal.class);
-       return Animal;
-     }
-   }
+ // public static Animal find(int id) {
+ //     try(Connection con = DB.sql2o.open()) {
+ //       String sql = "SELECT * FROM animals where id=:id";
+ //       Animal Animal = con.createQuery(sql)
+ //         .addParameter("id", id)
+ //         .executeAndFetchFirst(Animal.class);
+ //       return Animal;
+ //     }
+ //   }
 //delete method
      public void delete() {
        try(Connection con = DB.sql2o.open()) {
