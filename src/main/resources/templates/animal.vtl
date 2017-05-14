@@ -14,10 +14,6 @@
 <br>
 <h3>Add a Sighting</h3>
 <form action="/animal/$animal.getId()" method="post">
-
-  <label for="location">Location</label>
-  <input id="location" name="location" name="text">
-
   <div class="form-group">
     <label for="location">Animal Location:</label>
     <input type="text" class="form-control col-sm-3" id="location" placeholder="Enter animal location" name="location">
@@ -38,6 +34,5 @@
   <a href="/sighting/$sighting.getId()">
     <h4>Location: $sighting.getLocation()</h4>
     <h4>Ranger: $sighting.getRanger()</h4>
-    <h4>Time: $sighting.getDateSighted()</h4>
   </a>
 #end

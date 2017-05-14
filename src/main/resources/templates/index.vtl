@@ -3,35 +3,37 @@
 <div class="container">
   <h2>Add Normal Animal</h2>
   <form action="/normalanimal/new" method="post">
-    <div class="form-group">
+
+    <div class="form-group col-xs-4">
       <label for="animal">Animal:</label>
-      <input type="text" class="form-control col-sm-3" id="animal" placeholder="Enter animal" name="animal">
+      <input type="text" class="form-control col-sm-3" id="animal" placeholder="Enter animal" name="animal" width="48">
     </div>
+    <br>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
 </div>
-
+  <br>
 <h2>Endangered Animal</h2>
 <form action="/endangeredanimal/new" method="post">
-  <div class="form-group">
+  <div class="form-group col-xs-4">
     <label for="animal">Animal:</label>
     <input type="text" class="form-control col-sm-3" id="animal" placeholder="Enter animal" name="animal">
   </div>
-
+  <br>
   <label for="health"  class="form-group">Health</label>
     <select class="form-group" name="health">
       <option value=1>Good</option>
       <option value=2>Poor</option>
     </select>
-
-  <div class="form-group">
+  <br>
+  <div class="form-group col-xs-4">
     <label for="age">Animals Age:</label>
     <input type="text" class="form-control col-sm-3" id="age" placeholder="Enter animals estimated age" name="age">
   </div>
-
+  <br>
   <button type="submit" class="btn btn-success btn-sm">Add Endangered Animal</button>
 </form>
-
+  <br>
 <h3>All Animals:</h3>
 #foreach ($animal in $animals)
   <h3><a href="/animal/$animal.getId()">$animal.getName()</a><h3>

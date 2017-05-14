@@ -1,0 +1,24 @@
+<h2>Sightings</h2>
+
+<h3>Location: $sighting.getLocation()</h3>
+<h3>Ranger Name: $sighting.getRanger()</h3>
+
+<form action="/sighting/$sighting.getId()/update" method="post">
+
+<div class="form-group">
+  <label for="location">Endangered New Animal location:</label>
+  <input type="text" class="form-control col-sm-3" id="location" placeholder="Enter animal Location" name="location">
+</div>
+  <br>
+  <div class="form-group">
+    <label for="name">Endangered Animal name:</label>
+    <input type="text" class="form-control col-sm-3" id="name" placeholder="Enter animal name" name="name">
+  </div>
+  <br>
+  <button type="submit" class="btn btn-info btn-sm">Update Sighting</button>
+
+</form>
+<br>
+<form action="/sighting/$sighting.getId()/delete" method="post">
+  <button type="submit" class="btn btn-danger">Delete Sighting</button>
+</form>
