@@ -15,8 +15,20 @@ public class EndangeredAnimalTest {
  }
 // Test to check if endangered animal instantiates with name correctly
 @Test
- public void getName_endangeredAnimalInstantiatesWithName_Bison() {
+ public void getName_endangeredAnimalInstantiatesWithName_Tiger() {
    EndangeredAnimal newEndangeredAnimal = new EndangeredAnimal("Tiger", "okay", 3);
    assertEquals("Tiger", newEndangeredAnimal.getName());
  }
+ // Test to check if endangered animal instantiates with health correctly
+ @Test
+  public void getName_endangeredAnimalInstantiatesWithHealth() {
+    EndangeredAnimal newEndangeredAnimal = new EndangeredAnimal("Tiger", "okay", 3);
+    assertEquals("okay", newEndangeredAnimal.getHealth());
+  }
+  // Test to check if endangered animal instantiates with age correctly
+  @Test
+   public void getName_endangeredAnimalInstantiatesWithName() {
+     EndangeredAnimal newEndangeredAnimal = new EndangeredAnimal("Tiger", "okay", 3);
+     assertEquals(3, newEndangeredAnimal.getAge());
+   }
 }
