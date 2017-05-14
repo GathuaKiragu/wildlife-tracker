@@ -75,7 +75,7 @@ public void save() {
          .executeAndFetch(Sighting.class);
      }
    }
- // Delete sightings
+ //method to Delete sightings
    public void deleteSightings() {
      try(Connection con = DB.sql2o.open()) {
        String sql = "DELETE FROM sightings where animal_id=:id";
