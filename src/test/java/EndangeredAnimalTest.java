@@ -34,11 +34,32 @@ public class EndangeredAnimalTest {
      EndangeredAnimal newEndangeredAnimal = new EndangeredAnimal("Tiger", "okay", 3);
      assertEquals(3, newEndangeredAnimal.getAge());
    }
-  //Save endangered animal to Database
-  // @Test
-  // public void save_savesEndangeredAnimalIntoDatabase_true() {
-  //   EndangeredAnimal newEndangeredAnimal = new EndangeredAnimal("Tiger", "okay", 3);
-  //   newEndangeredAnimal.save();
-  //   assertTrue(EndangeredAnimal.all().get(0).equals(newEndangeredAnimal));
-  // }
+  // Save endangered animal to Database
+  @Test
+  public void save_savesEndangeredAnimalIntoDatabase_true() {
+    EndangeredAnimal newEndangeredAnimal = new EndangeredAnimal("Tiger", "okay", 3);
+    newEndangeredAnimal.save();
+    assertTrue(EndangeredAnimal.all().get(0).equals(newEndangeredAnimal));
+  }
+
+  // Find animal form database
+  @Test
+  public void find_returnsEndangeredAnimalWithSameId_secondEndangeredAnimal() {
+    EndangeredAnimal firstEndangeredAnimal = new EndangeredAnimal("Tiger", "okay", 3);
+    firstEndangeredAnimal.save();
+    EndangeredAnimal secondEndangeredAnimal = new EndangeredAnimal("Zebra", "bad", 7);
+    secondEndangeredAnimal.save();
+    assertEquals(EndangeredAnimal.find(secondEndangeredAnimal.getId()), secondEndangeredAnimal);
+  }
+// Update endangered animal
+  @Test
+  public void update_updatesEndangeredAnimal_true() {
+    EndangeredAnimal newEndangeredAnimal = new EndangeredAnimal("Tiger", "okay", 3);
+    newEndangeredAnimal.save();
+    newEndangeredAnimal.update("Zebra", "bad", 7);
+    assertEquals("Zebra", EndangeredAnimal.find(newEndangeredAnimal.getId()).getName());
+    assertEquals("bad", EndangeredAnimal.find(newEndangeredAnimal.getId()).getHealth());
+    assertEquals(7, EndangeredAnimal.find(newEndangeredAnimal.getId()).getAge());
+  }
+
 }

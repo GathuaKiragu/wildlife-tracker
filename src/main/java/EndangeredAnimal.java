@@ -61,4 +61,39 @@ public class EndangeredAnimal{
       .executeAndFetch(EndangeredAnimal.class);
     }
   }
+// Find endangered animal from database
+public static EndangeredAnimal find(int id) {
+  try(Connection con = DB.sql2o.open()){
+    String sql = "SELECT * FROM animals WHERE id=:id";
+    return con.createQuery(sql)
+    .addParameter("id", id)
+    .throwOnMappingFailure(false)
+    .executeAndFetchFirst(EndangeredAnimal.class);
+    }
+  }
+// Update endangered animals
+public void update(String name, String health, int age){
+  try(Connection con = DB.sql2o.open()) {
+    if(name.equals("")) {
+      throw new UnsupportedOperationException("Enter name of EndangeredAnimal");
+    }
+    String sql = "UPDATE animals SET name = :name , health = :health , age = :age WHERE id=:id";
+       con.createQuery(sql)
+      .addParameter("name", name)
+      .addParameter("health", health)
+      .addParameter("age", age)
+      .addParameter("id", id)
+      .executeUpdate();
+    }
+  }
+  // Ovaride method
+  @Override
+public boolean equals(Object otherEndangeredAnimal){
+  if (!(otherEndangeredAnimal instanceof EndangeredAnimal)) {
+    return false;
+  } else {
+    EndangeredAnimal newEndangeredAnimal = (EndangeredAnimal) otherEndangeredAnimal;
+    return this.getName().equals(newEndangeredAnimal.getName());
+    }
+}
 }
