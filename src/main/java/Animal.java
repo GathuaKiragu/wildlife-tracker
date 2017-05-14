@@ -56,4 +56,13 @@ public static List<Animal> all() {
        return Animal;
      }
    }
+//delete method
+     public void delete() {
+       try(Connection con = DB.sql2o.open()) {
+       String sql = "DELETE FROM animals WHERE id = :id;";
+       con.createQuery(sql)
+         .addParameter("id", id)
+         .executeUpdate();
+       }
+   }
 }
