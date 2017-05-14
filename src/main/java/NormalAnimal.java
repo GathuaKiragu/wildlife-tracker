@@ -2,10 +2,10 @@ import java.util.List;
 import java.util.ArrayList;
 import org.sql2o.*;
 
-public class NormalAnimal{
-  private String name;
-  private String endangered;
-  private int id;
+public class NormalAnimal extends Animal{
+  // private String name;
+  // private String endangered;
+  // private int id;
 
   public static final String isEndangered = "false";
 
@@ -14,13 +14,13 @@ public class NormalAnimal{
     this.name = name;
     endangered = isEndangered;
   }
-  public String getName() {
-    return name;
-  }
-
-  public int getId() {
-    return id;
-  }
+  // public String getName() {
+  //   return name;
+  // }
+  //
+  // public int getId() {
+  //   return id;
+  // }
 
   // Save Method
   public void save() {

@@ -3,8 +3,8 @@ import java.util.List;
 import org.sql2o.*;
 
 public abstract class Animal {
-  private String name;
-  private int id;
+  public String name;
+  public int id;
   public String endangered;
 
 // Constructor

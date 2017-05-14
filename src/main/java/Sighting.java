@@ -63,15 +63,15 @@ public class Sighting {
     }
   }
 // Find method
-  // public static Sighting find(int id) {
-  //   try(Connection con = DB.sql2o.open()){
-  //     String sql = "SELECT * FROM sightings WHERE id=:id";
-  //     Sighting sighting = con.createQuery(sql)
-  //     .addParameter("id", id)
-  //     .executeAndFetchFirst(Sighting.class);
-  //     return sighting;
-  //   }
-  // }
+  public static Sighting find(int id) {
+    try(Connection con = DB.sql2o.open()){
+      String sql = "SELECT * FROM sightings WHERE id=:id";
+      Sighting sighting = con.createQuery(sql)
+      .addParameter("id", id)
+      .executeAndFetchFirst(Sighting.class);
+      return sighting;
+    }
+  }
 // update sigthing method
   public void update(String location, String ranger){
     try(Connection con = DB.sql2o.open()) {
