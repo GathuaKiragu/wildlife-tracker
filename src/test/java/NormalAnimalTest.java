@@ -37,4 +37,13 @@ public class NormalAnimalTest {
     secondNormalAnimal.save();
     assertEquals(NormalAnimal.find(secondNormalAnimal.getId()), secondNormalAnimal);
   }
+// Test to update normal animal
+
+@Test
+public void update_updatesAnimalNames_true() {
+  NormalAnimal newNormalAnimal = new NormalAnimal("Lion");
+  newNormalAnimal.save();
+  newNormalAnimal.update("Antelope");
+  assertEquals("Antelope", NormalAnimal.find(newNormalAnimal.getId()).getName());
+  }
 }

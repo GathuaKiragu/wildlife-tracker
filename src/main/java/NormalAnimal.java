@@ -55,7 +55,7 @@ public class NormalAnimal{
       .executeAndFetchFirst(NormalAnimal.class);
     }
   }
-  // Ovaride method
+  // Ovarride method
   @Override
 public boolean equals(Object otherNormalAnimal){
   if (!(otherNormalAnimal instanceof NormalAnimal)) {
@@ -64,5 +64,18 @@ public boolean equals(Object otherNormalAnimal){
     NormalAnimal newNormalAnimal = (NormalAnimal) otherNormalAnimal;
     return this.getName().equals(newNormalAnimal.getName());
     }
-}
-}
+  }
+// Update method
+  public void update(String name) {
+    try(Connection con = DB.sql2o.open()) {
+      if (name.equals("")){
+        throw new UnsupportedOperationException("Enter name");
+      }
+    String sql = "UPDATE animals SET name = :name WHERE id = :id";
+    con.createQuery(sql)
+      .addParameter("name", name)
+      .addParameter("id", id)
+      .executeUpdate();
+      }
+    }
+  }
