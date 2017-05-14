@@ -13,4 +13,10 @@ public class EndangeredAnimalTest {
    EndangeredAnimal myEndangeredAnimal = new EndangeredAnimal("Tiger", "okay", 3);
    assertEquals(true, myEndangeredAnimal instanceof EndangeredAnimal);
  }
+// Test to check if endangered animal instantiates with name correctly
+@Test
+ public void getName_endangeredAnimalInstantiatesWithName_Bison() {
+   EndangeredAnimal newEndangeredAnimal = new EndangeredAnimal("Tiger", "okay", 3);
+   assertEquals("Tiger", newEndangeredAnimal.getName());
+ }
 }

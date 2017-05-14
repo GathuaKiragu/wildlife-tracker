@@ -16,4 +16,7 @@ public class EndangeredAnimal{
     this.health = health;
     this.age = age;
   }
+  public String getName() {
+    return name;
+  }
 }
