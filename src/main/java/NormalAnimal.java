@@ -56,15 +56,15 @@ public class NormalAnimal extends Animal{
     }
   }
   // Ovarride method
-  @Override
-public boolean equals(Object otherNormalAnimal){
-  if (!(otherNormalAnimal instanceof NormalAnimal)) {
-    return false;
-  } else {
-    NormalAnimal newNormalAnimal = (NormalAnimal) otherNormalAnimal;
-    return this.getName().equals(newNormalAnimal.getName());
-    }
-  }
+//   @Override
+// public boolean equals(Object otherNormalAnimal){
+//   if (!(otherNormalAnimal instanceof NormalAnimal)) {
+//     return false;
+//   } else {
+//     NormalAnimal newNormalAnimal = (NormalAnimal) otherNormalAnimal;
+//     return this.getName().equals(newNormalAnimal.getName());
+//     }
+//   }
 // Update method
   public void update(String name) {
     try(Connection con = DB.sql2o.open()) {

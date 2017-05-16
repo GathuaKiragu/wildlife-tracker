@@ -61,7 +61,7 @@ public class Sighting {
         .executeUpdate()
         .getKey();
     }
-  }
+}
 // Find method
   public static Sighting find(int id) {
     try(Connection con = DB.sql2o.open()){
@@ -72,6 +72,7 @@ public class Sighting {
       return sighting;
     }
   }
+
 // update sigthing method
   public void update(String location, String ranger){
     try(Connection con = DB.sql2o.open()) {

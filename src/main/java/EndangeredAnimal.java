@@ -2,7 +2,7 @@ import java.util.List;
 import java.util.ArrayList;
 import org.sql2o.*;
 
-public class EndangeredAnimal extends Animal {
+public class EndangeredAnimal extends Animal{
   // private String name;
   private String health;
   private int age;
@@ -85,15 +85,15 @@ public void update(String name, String health, int age){
       .addParameter("id", id)
       .executeUpdate();
     }
-  }
+  // }
   // Ovaride method
-  @Override
-public boolean equals(Object otherEndangeredAnimal){
-  if (!(otherEndangeredAnimal instanceof EndangeredAnimal)) {
-    return false;
-  } else {
-    EndangeredAnimal newEndangeredAnimal = (EndangeredAnimal) otherEndangeredAnimal;
-    return this.getName().equals(newEndangeredAnimal.getName());
-    }
-}
+//   @Override
+// public boolean equals(Object otherEndangeredAnimal){
+//   if (!(otherEndangeredAnimal instanceof EndangeredAnimal)) {
+//     return false;
+//   } else {
+//     EndangeredAnimal newEndangeredAnimal = (EndangeredAnimal) otherEndangeredAnimal;
+//     return this.getName().equals(newEndangeredAnimal.getName());
+//     }
+  }
 }
