@@ -16,7 +16,7 @@ public class App {
       port(getHerokuAssignedPort());
       staticFileLocation("/public");
       String layout = "templates/layout.vtl";
-
+// Ger routes
     get("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("template", "templates/index.vtl");
@@ -33,7 +33,7 @@ public class App {
      model.put("template", "templates/animal.vtl");
      return new ModelAndView(model, layout);
    }, new VelocityTemplateEngine());
-
+// get endangered animal with id
    get("/endangeredanimal/:id", (request, response) -> {
      Map<String, Object> model = new HashMap<String, Object>();
      EndangeredAnimal animal = EndangeredAnimal.find(Integer.parseInt(request.params(":id")));
@@ -42,7 +42,7 @@ public class App {
      model.put("template", "templates/endangeredanimal.vtl");
      return new ModelAndView(model, layout);
    }, new VelocityTemplateEngine());
-
+// get animal sigthing
    get("/sighting/:id", (request, response) -> {
      Map<String, Object> model = new HashMap<String, Object>();
      Sighting sighting = Sighting.find(Integer.parseInt(request.params(":id")));
@@ -67,25 +67,12 @@ public class App {
      model.put("template", "templates/index.vtl");
      return new ModelAndView(model, layout);
    }, new VelocityTemplateEngine());
-
+// route to add new endangered aniimal
    post("/endangeredanimal/new", (request, response) -> {
      Map<String, Object> model = new HashMap<String, Object>();
      String name = request.queryParams("animal");
      int userHealth = Integer.parseInt(request.queryParams("health"));
      int userAge = Integer.parseInt(request.queryParams("age"));
-     String logHealth = "";
-     String logAge = "";
-     if (userHealth == 1){
-       logHealth = EndangeredAnimal.Good;
-     } else if (userHealth == 2) {
-       logAge = EndangeredAnimal.Poor;
-     }
-     EndangeredAnimal newAnimal = new EndangeredAnimal(name, logHealth, userAge);
-     try{
-       newAnimal.save();
-     }
-     catch (UnsupportedOperationException exception)
-     { }
      model.put("animals", NormalAnimal.all());
      model.put("endangeredAnimals", EndangeredAnimal.all());
      model.put("template", "templates/index.vtl");
@@ -104,7 +91,7 @@ public class App {
      model.put("template", "templates/animal.vtl");
      return new ModelAndView(model, layout);
    }, new VelocityTemplateEngine());
-
+// route to normal update animal
    post("/animal/:id/update", (request, response) -> {
      Map<String, Object> model = new HashMap<String, Object>();
      NormalAnimal animal = NormalAnimal.find(Integer.parseInt(request.params(":id")));
@@ -114,11 +101,11 @@ public class App {
      }
      catch (UnsupportedOperationException exception)
      { }
-     String url = String.format("/animal/%d", animal.getId());
+     String url = String.format("/animal/%id", animal.getId());
      response.redirect(url);
      return new ModelAndView(model, layout);
    }, new VelocityTemplateEngine());
-
+// route to view individial endangered animal with id
    post("/endangeredanimal/:id", (request, response) -> {
      Map<String, Object> model = new HashMap<String, Object>();
      EndangeredAnimal animal = EndangeredAnimal.find(Integer.parseInt(request.params(":id")));
@@ -131,7 +118,7 @@ public class App {
      model.put("template", "templates/endangeredanimal.vtl");
      return new ModelAndView(model, layout);
    }, new VelocityTemplateEngine());
-
+// route to update endangeredanimal
    post("/endangeredanimal/:id/update", (request, response) -> {
      Map<String, Object> model = new HashMap<String, Object>();
      EndangeredAnimal animal = EndangeredAnimal.find(Integer.parseInt(request.params(":id")));
@@ -147,7 +134,7 @@ public class App {
      response.redirect(url);
      return new ModelAndView(model, layout);
    }, new VelocityTemplateEngine());
-
+// route to delete endangeredanimal
    post("/animal/:id/delete", (request, response) -> {
      Map<String, Object> model = new HashMap<String, Object>();
      NormalAnimal animal = NormalAnimal.find(Integer.parseInt(request.params(":id")));
@@ -158,7 +145,7 @@ public class App {
      model.put("template", "templates/index.vtl");
      return new ModelAndView(model, layout);
    }, new VelocityTemplateEngine());
-
+// delete endangered animal route
    post("/endangeredanimal/:id/delete", (request, response) -> {
      Map<String, Object> model = new HashMap<String, Object>();
      EndangeredAnimal animal = EndangeredAnimal.find(Integer.parseInt(request.params(":id")));
@@ -169,7 +156,7 @@ public class App {
      model.put("template", "templates/index.vtl");
      return new ModelAndView(model, layout);
    }, new VelocityTemplateEngine());
-
+// delete sighting rourte
    post("/sighting/:id/delete", (request, response) -> {
      Map<String, Object> model = new HashMap<String, Object>();
      Sighting sighting = Sighting.find(Integer.parseInt(request.params(":id")));
@@ -179,7 +166,7 @@ public class App {
      model.put("template", "templates/index.vtl");
      return new ModelAndView(model, layout);
    }, new VelocityTemplateEngine());
-
+// update sighting roure
    post("/sighting/:id/update", (request, response) -> {
      Map<String, Object> model = new HashMap<String, Object>();
      Sighting sighting = Sighting.find(Integer.parseInt(request.params(":id")));
