@@ -4,14 +4,31 @@
     <title>Wildlife Tracker</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="/app.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
   <body>
+<nav class="navbar navbar-inverse fixed">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Wildlife-Tracker</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="/normalanimal">Normal Animal</a></li>
+      <li><a href="/endangeredanimal">Endangered Animal</a></li>
+      <li><a href="/summary">Summary</a></li>
+      <li><a href="/abouts">AboutUs</a></li>
+    </ul>
+  </div>
+</nav>
     <div class="container">
 
       #parse( $template )
 
     </div>
+    <script src="/script.js"></script>
+
   </body>
   </body>
 </html>
