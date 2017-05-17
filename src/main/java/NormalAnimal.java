@@ -3,26 +3,13 @@ import java.util.ArrayList;
 import org.sql2o.*;
 
 public class NormalAnimal extends Animal{
-  // private String name;
-  // private String endangered;
-  // private int id;
-
-  public static final String isEndangered = "false";
-
+ public static final String isEndangered = "false";
 //Constructor
   public NormalAnimal(String name) {
     this.name = name;
     endangered = isEndangered;
   }
-  // public String getName() {
-  //   return name;
-  // }
-  //
-  // public int getId() {
-  //   return id;
-  // }
-
-  // Save Method
+// Save Method
   public void save() {
     try(Connection con = DB.sql2o.open()) {
       if (name.equals("")){
@@ -36,7 +23,6 @@ public class NormalAnimal extends Animal{
         .getKey();
     }
   }
-
   public static List<NormalAnimal> all() {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM animals WHERE endangered='false'";
@@ -53,16 +39,6 @@ public class NormalAnimal extends Animal{
       .addParameter("id", id)
       .throwOnMappingFailure(false)
       .executeAndFetchFirst(NormalAnimal.class);
-    }
-  }
-  // Ovarride method
-  @Override
-public boolean equals(Object otherNormalAnimal){
-  if (!(otherNormalAnimal instanceof NormalAnimal)) {
-    return false;
-  } else {
-    NormalAnimal newNormalAnimal = (NormalAnimal) otherNormalAnimal;
-    return this.getName().equals(newNormalAnimal.getName());
     }
   }
 // Update method

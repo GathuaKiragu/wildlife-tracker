@@ -30,10 +30,11 @@ public boolean equals(Object otherAnimal){
     return this.getName().equals(newAnimal.getName());
     }
 }
+
 // Save animals to DatabaseRule
 public void save() {
   try(Connection con = DB.sql2o.open()) {
-    String sql = "INSERT INTO animals (name) VALUES (:name)";
+    String sql = "INSERT INTO animals (name, endangered) VALUES (:name, :endangered;)";
     this.id = (int) con.createQuery(sql, true)
       .addParameter("name", this.name)
       .executeUpdate()
@@ -48,15 +49,15 @@ public void save() {
 //    }
 //  }
  // find animal from the database
- // public static Animal find(int id) {
- //     try(Connection con = DB.sql2o.open()) {
- //       String sql = "SELECT * FROM animals where id=:id";
- //       Animal Animal = con.createQuery(sql)
- //         .addParameter("id", id)
- //         .executeAndFetchFirst(Animal.class);
- //       return Animal;
- //     }
- //   }
+ public static Animal find(int id) {
+     try(Connection con = DB.sql2o.open()) {
+       String sql = "SELECT * FROM animals where id=:id";
+       Animal Animal = con.createQuery(sql)
+         .addParameter("id", id)
+         .executeAndFetchFirst(Animal.class);
+       return Animal;
+     }
+   }
 //delete method
      public void delete() {
        try(Connection con = DB.sql2o.open()) {

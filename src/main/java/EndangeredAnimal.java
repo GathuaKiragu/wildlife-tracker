@@ -2,13 +2,9 @@ import java.util.List;
 import java.util.ArrayList;
 import org.sql2o.*;
 
-public class EndangeredAnimal extends Animal {
-  // private String name;
+public class EndangeredAnimal extends Animal{
   private String health;
   private int age;
-  // private int id;
-  // private String endangered;
-
   public static final String Good = "good";
   public static final String Poor = "poor";
   public static final String isEndangered = "true";
@@ -20,10 +16,6 @@ public class EndangeredAnimal extends Animal {
     this.age = age;
     endangered = isEndangered;
   }
-  // get name
-  // public String getName() {
-  //   return name;
-  // }
 // get endangerd animal health
   public String getHealth() {
     return health;
@@ -32,10 +24,6 @@ public class EndangeredAnimal extends Animal {
   public int getAge() {
     return age;
   }
-// Return id of endangered animal
-  // public int getId() {
-  //   return id;
-  // }
 // Save endangered animal to the database
   public void save() {
     // Throw error when ranger inputs empty animal
@@ -86,14 +74,4 @@ public void update(String name, String health, int age){
       .executeUpdate();
     }
   }
-  // Ovaride method
-  @Override
-public boolean equals(Object otherEndangeredAnimal){
-  if (!(otherEndangeredAnimal instanceof EndangeredAnimal)) {
-    return false;
-  } else {
-    EndangeredAnimal newEndangeredAnimal = (EndangeredAnimal) otherEndangeredAnimal;
-    return this.getName().equals(newEndangeredAnimal.getName());
-    }
-}
 }

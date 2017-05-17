@@ -28,46 +28,48 @@ public class SightingTest {
     assertEquals("Roadside", newSighting.getLocation());
   }
 // Test to check if sighting is saved with an Id
-  // @Test
-  // public void save_assignsIdToObject() {
-  //   Sighting newSighting = new Sighting(1, "Roadside", "Collins");
-  //   newSighting.save();
-  //   Sighting savedSighting = Sighting.all().get(0);
-  //   assertEquals(newSighting.getId(), savedSighting.getId());
-  // }
+  @Test
+  public void save_assignsIdToObject() {
+    Sighting newSighting = new Sighting(1, "Roadside", "Collins");
+    newSighting.save();
+    Sighting savedSighting = Sighting.all().get(0);
+    assertEquals(newSighting.getId(), savedSighting.getId());
+  }
 // Test to check if all instances of sighting are instantiated
-  // @Test
-  // public void all_returnsAllInstancesOfSighting_true() {
-  //   Sighting firstSighting = new Sighting(1, "Roadside", "Collins");
-  //   firstSighting.save();
-  //   Sighting secondSighting = new Sighting(1, "Park", "Alex");
-  //   secondSighting.save();
-  //   assertEquals(true, Sighting.all().get(0).equals(firstSighting));
-  //   assertEquals(true, Sighting.all().get(1).equals(secondSighting));
+  @Test
+  public void all_returnsAllInstancesOfSighting_true() {
+    Sighting firstSighting = new Sighting(1, "Roadside", "Collins");
+    firstSighting.save();
+    Sighting secondSighting = new Sighting(1, "Park", "Alex");
+    secondSighting.save();
+    assertEquals(true, Sighting.all().get(0).equals(firstSighting));
+    assertEquals(true, Sighting.all().get(1).equals(secondSighting));
   }
 // Test to find sighting
-  // @Test
-  // public void find_returnsSightingWithSameId_secondSighting() {
-  //   Sighting firstSighting = new Sighting(1, "Roadside", "Collins");
-  //   firstSighting.save();
-  //   Sighting secondSighting = new Sighting(1, "Park", "Alex");
-  //   secondSighting.save();
-  //   assertEquals(Sighting.find(secondSighting.getId()), secondSighting);
-  // }
+  @Test
+  public void find_returnsSightingWithSameId_secondSighting() {
+    Sighting firstSighting = new Sighting(1, "Roadside", "Collins");
+    firstSighting.save();
+    Sighting secondSighting = new Sighting(1, "Park", "Alex");
+    secondSighting.save();
+    assertEquals(Sighting.find(secondSighting.getId()), secondSighting);
+  }
 // Test to check if sighting can be updated
-  // @Test
-  // public void update_updatesSighting_true() {
-  //   Sighting newSighting = new Sighting(1, "Roadside", "Collins");
-  //   newSighting.save();
-  //   newSighting.update("Park", "Alex");
-  //   assertEquals("Park", Sighting.find(newSighting.getId()).getLocation());
-  //   assertEquals("Alex", Sighting.find(newSighting.getId()).getRanger());
-  // }
+  @Test
+  public void update_updatesSighting_true() {
+    Sighting newSighting = new Sighting(1, "Roadside", "Collins");
+    newSighting.save();
+    newSighting.update("Park", "Alex");
+    assertEquals("Park", Sighting.find(newSighting.getId()).getLocation());
+    assertEquals("Alex", Sighting.find(newSighting.getId()).getRanger());
+  }
 // Delete sighting
-  // @Test
-  // public void delete_deletesSighting_true() {
-  //   Sighting newSighting = new Sighting(1, "Roadside", "Collins");
-  //   newSighting.save();
-  //   int newSightingId = newSighting.getId();
-  //   newSighting.delete();
-  //   assertEquals(null, Sighting.find(newSightingId));
+  @Test
+  public void delete_deletesSighting_true() {
+    Sighting newSighting = new Sighting(1, "Roadside", "Collins");
+    newSighting.save();
+    int newSightingId = newSighting.getId();
+    newSighting.delete();
+    assertEquals(null, Sighting.find(newSightingId));
+  }
+}
