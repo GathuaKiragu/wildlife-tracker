@@ -1,88 +1,88 @@
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({
-google_ad_client: "ca-pub-5362103574573934",
-enable_page_level_ads: true
-});
-</script>
 <center><h1 class="header">WildLife Tracker</h1></center>
 <!-- Trigger/Open The Modal -->
-<button class="btn btn-success" id="myBtn">Add Normal Animal</button>
-<!-- The Modal -->
-<div id="myModal" class="modal">
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-      <h2>Add Normal Animal</h2>
-    </div>
-    <div class="modal-body">
-    <form class="form-horizontal" action="/normalanimal/new" method="post">
-      <div class="form-group>
-      <label class="control-label col-sm-2" for="animal">Animal:</label>
-      <input type="text" class="form-control col-sm-3" id="animal" placeholder="Enter animal" name="animal" width="48">
+<div class="container">
+  <h2>Wildlife-Tracker</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Normal Animal</button>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Normal Animal</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" action="/normalanimal/new" method="post">
+            <div class="form-group>
+                  <label class="control-label col-sm-2" for="animal">Animal name:</label>
+                  <input type="text" class="form-control col-sm-3" id="animal" placeholder="Enter animal name" name="animal" width="48">
+                </div>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-info">Submit</button>
+              </form>
+            </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
       </div>
-      <br>
-      <br>
-      <button type="submit" class="btn btn-info">Submit</button>
-    </form>
-    </div>
-    <div class="modal-footer">
-      <h3>Normal Animal</h3>
     </div>
   </div>
 </div>
-  <br>
-  <br>
 
 
-  <button class="btn btn-success" id="myBtn">Add Endangered Animal</button>
-  <!-- The Modal -->
-  <div id="myModal" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content">
-      <div class="modal-header">
-        <span class="close">&times;</span>
-        <h2>Add Endangered Animal</h2>
-      </div>
-      <div class="modal-body">
-      <form class="form-horizontal" action="/endangeredanimal/new" method="post">
-        <div class="form-group col-xs-4">
-          <label class="control-label" for="animal">Animal:</label>
-          <input type="text" class="form-control col-sm-3" id="animal" placeholder="Enter animal" name="animal">
+<div class="container1">
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#secModal">Add Endangered Animal</button>
+  <!-- Modal -->
+  <div class="modal fade" id="secModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add Endangered Animal Animal</h4>
         </div>
-        <br>
-        <div class="container"
-        <label for="health"  class="form-group">Health</label>
-          <select class="form-group" name="health">
-            <option value=1>Good</option>
-            <option value=2>Poor</option>
-          </select>
+        <div class="modal-body">
+        <form class="form-horizontal" action="/endangeredanimal/new" method="post">
+          <div class="form-group">
+            <label for="animal">Animal name:</label>
+            <input type="text" class="form-control" id="animal" placeholder="Enter animal" name="animal">
           </div>
-        <br>
-        <div class="form-group col-xs-4">
-          <label class="control-label" for="age">Animals Age:</label>
-          <input type="text" class="form-control col-sm-3" id="age" placeholder="Enter animals estimated age" name="age">
+          <br>
+          <div class="form-group">
+            <label for="health">Health</label>
+            <select class="form-control" name="health">
+              <option value=1>Good</option>
+              <option value=2>Poor</option>
+            </select>
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="age">Animals Age:</label>
+            <input type="text" class="form-control" id="age" placeholder="Enter animals estimated age" name="age">
+          </div>
+          <br>
+          <br>
+          <br>
+          <button type="submit" class="btn btn-success">Add Endangered Animal</button>
+        </form>
         </div>
-        <br>
-        <br>
-        <br>
-        <button type="submit" class="btn btn-success">Add Endangered Animal</button>
-      </form>
-      </div>
-      <div class="modal-footer">
-        <h3>Endangered animals</h3>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>
-<br>
+</div>
+
+
 <div class="well">
 <h3>All Animals:</h3>
 #foreach ($animal in $animals)
-  <h3><a href="/animal/$animal.getId()">$animal.getName()</a><h3>
+<h3><a href="/animal/$animal.getId()">$animal.getName()</a><h3>
 #end
 <h3>All Endangered Animals:</h3>
 #foreach ($animal in $endangeredAnimals)
-  <h3><a href="/endangeredanimal/$animal.getId()">$animal.getName()</a> Health: $animal.getHealth() Age: $animal.getAge()<h3>
+<h3><a href="/endangeredanimal/$animal.getId()">$animal.getName()</a> Health: $animal.getHealth() Age: $animal.getAge()<h3>
 #end
 </div>
